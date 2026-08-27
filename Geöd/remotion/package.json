@@ -8,6 +8,8 @@
     "start": "remotion studio",
     "render:akte-001": "remotion render Akte001 out/AKTE-001.mp4",
     "still:akte-001": "remotion still Akte001 out/AKTE-001-cover.png --frame=0",
+    "render:geldakte-002": "remotion render Geldakte002 out/GELDAKTE-002.mp4",
+    "still:geldakte-002": "remotion still Geldakte002 out/GELDAKTE-002-cover.png --frame=0",
     "typecheck": "tsc --noEmit",
     "upgrade": "remotion upgrade"
   },
