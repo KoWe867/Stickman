@@ -1,0 +1,25 @@
+{
+  "name": "geldakte-remotion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remotion-Produktionsprojekt für den Kanal GELDAKTE (1080x1920, 30 fps)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "remotion studio",
+    "render:akte-001": "remotion render Akte001 out/AKTE-001.mp4",
+    "still:akte-001": "remotion still Akte001 out/AKTE-001-cover.png --frame=0",
+    "typecheck": "tsc --noEmit",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}
