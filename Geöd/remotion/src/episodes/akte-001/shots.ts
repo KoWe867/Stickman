@@ -17,8 +17,9 @@ import type {Shot} from '../../lib/shots';
  *  1. Redaktionelle Sperre aus `script.md`: Wortlaut, Markenbezeichnung,
  *     Datenschutzprozess, Vergütungsdefinition und Zahlen brauchen die
  *     Freigabe einer zweiten Person.
- *  2. Timing gegen `public/audio/voiceover.m4a` legen. Die Datei liegt dem
- *     Projekt nicht vor; die Dauern hier sind aus der Sprechlänge geschätzt.
+ *  2. Die Dauern sind aus `public/akte-001/voiceover.m4a` gemessen: die
+ *     Schnittgrenzen liegen auf den per Pausenerkennung ermittelten
+ *     Sprechpausen, wo eine nah genug lag, sonst mitten im Satz.
  *  3. Bilder nach `public/akte-001/` legen und `image` setzen.
  */
 export const akte001Shots: readonly Shot[] = [
@@ -29,7 +30,7 @@ export const akte001Shots: readonly Shot[] = [
       'Nahaufnahme eines anonymisierten Smartphones mit verpasstem Anruf, rotes Warnsignal, Geldschein als grafisches Beweisstück.',
     caption: 'Verpasst',
     voiceover: 'Ein Dachdecker steht auf dem Gerüst. Sein Handy klingelt.',
-    sekunden: 2.6,
+    sekunden: 3.64,
     kenBurns: 'zoom-in',
   },
   {
@@ -39,7 +40,7 @@ export const akte001Shots: readonly Shot[] = [
       'Handwerker auf einem Gerüst, Handy in der Tasche, neugieriger statt dramatischer Gesichtsausdruck, sichere Baustellendarstellung.',
     caption: 'Er geht nicht ran',
     voiceover: 'Er geht nicht ran.',
-    sekunden: 2.2,
+    sekunden: 3.68,
     kenBurns: 'pan-down',
   },
   {
@@ -49,7 +50,7 @@ export const akte001Shots: readonly Shot[] = [
       'Geöffnete Fallakte mit Uhrzeit, Telefon und leerem Kontaktfeld, Tresorkopf als Ermittler.',
     caption: 'Zwei Minuten',
     voiceover: 'Zwei Minuten später',
-    sekunden: 2.2,
+    sekunden: 3.67,
     kenBurns: 'zoom-in',
   },
   {
@@ -59,7 +60,7 @@ export const akte001Shots: readonly Shot[] = [
       'Kundin am Fenster ruft einen Betrieb an, im Hintergrund ein zweites Telefon, klarer Ursache-Wirkungs-Moment.',
     caption: 'Nächster Betrieb',
     voiceover: 'ruft der Kunde den nächsten Betrieb an.',
-    sekunden: 3.0,
+    sekunden: 4.25,
     kenBurns: 'pan-right',
   },
   {
@@ -69,7 +70,7 @@ export const akte001Shots: readonly Shot[] = [
       'Tresorkopf zeigt auf eine leere Verbindung zwischen Kunde und Betrieb, einzelne gelbe Markierung.',
     caption: 'Die Lücke',
     voiceover: 'Genau hier liegt die Lücke.',
-    sekunden: 2.6,
+    sekunden: 3.64,
     kenBurns: 'zoom-in',
   },
   {
@@ -80,7 +81,7 @@ export const akte001Shots: readonly Shot[] = [
     caption: 'Vier Betriebe',
     voiceover:
       'Du vereinbarst mit einem Betrieb, verpasste Anrufe sofort zu beantworten.',
-    sekunden: 3.2,
+    sekunden: 4.21,
     kenBurns: 'pan-up',
   },
   {
@@ -90,7 +91,7 @@ export const akte001Shots: readonly Shot[] = [
       'Maschine beantwortet eine Anfrage nach einer vorher festgelegten Regel, Zustimmungssymbol sichtbar.',
     caption: 'Sofort-Antwort',
     voiceover: 'Eine kurze Nachricht fragt:',
-    sekunden: 3.0,
+    sekunden: 3.76,
     kenBurns: 'zoom-out',
   },
   {
@@ -101,7 +102,7 @@ export const akte001Shots: readonly Shot[] = [
     caption: 'Was Wo Foto Wann',
     voiceover:
       'Was ist kaputt? Wo ist der Einsatzort? Wann passt ein Termin?',
-    sekunden: 3.4,
+    sekunden: 4.76,
     kenBurns: 'zoom-in',
     beats: ['WAS', 'WO', 'FOTO', 'WANN'],
   },
@@ -113,7 +114,7 @@ export const akte001Shots: readonly Shot[] = [
     caption: 'Nur mit Zustimmung',
     voiceover:
       'Nur wenn der Betrieb zustimmt, leitest du die Anfrage nach seinen Regeln weiter und buchst einen Termin.',
-    sekunden: 3.6,
+    sekunden: 5.54,
     kenBurns: 'pan-left',
     erfolg: true,
     beats: ['ZUSTIMMUNG', 'NACH SEINEN REGELN', 'TERMIN'],
@@ -126,7 +127,7 @@ export const akte001Shots: readonly Shot[] = [
     caption: '160 Termine',
     voiceover:
       'Beispiel: Zwei qualifizierte Termine pro Tag, vier Betriebe, 20 Arbeitstage. Das sind 2 x 4 x 20 = 160 Termine.',
-    sekunden: 4.2,
+    sekunden: 6.58,
     kenBurns: 'zoom-in',
     stempel: 'Modellrechnung',
     beats: ['2 TERMINE / TAG', '4 BETRIEBE', '20 ARBEITSTAGE', '= 160'],
@@ -140,7 +141,7 @@ export const akte001Shots: readonly Shot[] = [
     betrag: '5.600 €',
     voiceover:
       'Bei 35 Euro je wahrgenommenem Termin ergibt das 160 x 35 = 5.600 Euro Umsatz im Monat.',
-    sekunden: 4.6,
+    sekunden: 6.12,
     kenBurns: 'zoom-out',
     stempel: 'Modellrechnung',
     // Das Ergebnis trägt der grosse Betrag, nicht noch ein Beat – sonst steht
@@ -155,7 +156,7 @@ export const akte001Shots: readonly Shot[] = [
     caption: 'Du reparierst nichts',
     voiceover:
       'Das ist eine Beispielrechnung. Kosten, Ausfälle, Steuern und Stornos fehlen. Du reparierst kein Dach. Du verkaufst dem Betrieb eine saubere Reaktion auf verpasste Anrufe.',
-    sekunden: 5.0,
+    sekunden: 5.56,
     kenBurns: 'zoom-in',
     beats: ['KEIN DACH', 'NUR DIE REAKTION'],
   },

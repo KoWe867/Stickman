@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Sequence} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import {AkteIntro} from '../../components/AkteIntro';
 import {AkteOutro} from '../../components/AkteOutro';
 import {Kleindruck} from '../../components/Kleindruck';
@@ -9,10 +9,16 @@ import {sekundenZuFrames, startFrames} from '../../lib/shots';
 import {KLEINDRUCK, akte001Shots} from './shots';
 
 export const EPISODE = 'akte-001';
-/** Sprechdauer von „Geldwege, die sich verboten anfuehlen. Akte 001.“ */
-export const INTRO_SEKUNDEN = 2.5;
-/** Sprechdauer von „Folge der Geldakte – oder bleib die Einnahmequelle.“ */
-export const OUTRO_SEKUNDEN = 3.5;
+/**
+ * Gemessen aus voiceover.m4a: erste Sprechpause bei 1,489–2,209 s.
+ * Der Auftakt endet auf der Pausenmitte.
+ */
+export const INTRO_SEKUNDEN = 1.849;
+/** Schlusszeile ab 57,259 s bis zum Dateiende bei 60,167 s. */
+export const OUTRO_SEKUNDEN = 2.908;
+
+/** Tonspur der Folge, 60,16 s. */
+export const VOICEOVER = `${EPISODE}/voiceover.m4a`;
 
 /** Maskottchen-Bild für die Schlusskarte, sobald es in public/ liegt. */
 const MASKOTTCHEN: string | null = null;
@@ -27,6 +33,8 @@ export const Akte001: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: colors.cremeHell}}>
+      <Audio src={staticFile(VOICEOVER)} />
+
       <Sequence durationInFrames={introFrames} name="Auftakt">
         <AkteIntro nummer="001" />
       </Sequence>
