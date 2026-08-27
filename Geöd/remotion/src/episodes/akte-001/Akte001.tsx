@@ -2,14 +2,17 @@ import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
 import {AkteIntro} from '../../components/AkteIntro';
 import {AkteOutro} from '../../components/AkteOutro';
+import {Kleindruck} from '../../components/Kleindruck';
 import {Szene} from '../../components/Szene';
 import {colors} from '../../theme/tokens';
 import {sekundenZuFrames, startFrames} from '../../lib/shots';
-import {akte001Shots} from './shots';
+import {KLEINDRUCK, akte001Shots} from './shots';
 
 export const EPISODE = 'akte-001';
-export const INTRO_SEKUNDEN = 1.2;
-export const OUTRO_SEKUNDEN = 3.0;
+/** Sprechdauer von „Geldwege, die sich verboten anfuehlen. Akte 001.“ */
+export const INTRO_SEKUNDEN = 2.5;
+/** Sprechdauer von „Folge der Geldakte – oder bleib die Einnahmequelle.“ */
+export const OUTRO_SEKUNDEN = 3.5;
 
 /** Maskottchen-Bild für die Schlusskarte, sobald es in public/ liegt. */
 const MASKOTTCHEN: string | null = null;
@@ -45,6 +48,11 @@ export const Akte001: React.FC = () => {
         name="Abbinder"
       >
         <AkteOutro maskottchen={MASKOTTCHEN} episode={EPISODE} />
+      </Sequence>
+
+      {/* Läuft über die gesamte Folge, ausser über dem Auftaktstempel. */}
+      <Sequence from={introFrames} name="Kleindruck">
+        <Kleindruck text={KLEINDRUCK} />
       </Sequence>
     </AbsoluteFill>
   );

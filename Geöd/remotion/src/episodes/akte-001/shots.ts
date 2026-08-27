@@ -3,156 +3,167 @@ import type {Shot} from '../../lib/shots';
 /**
  * AKTE 001 – „Verkaufe verpasste Anrufe“
  *
- * ACHTUNG – ENTWURF, NICHT FREIGEGEBEN.
+ * Bilder: `episodes/AKTE-001/visualprompts.md` (12 Shotprompts, unverändert
+ * in der dort festgelegten Reihenfolge).
+ * Sprechertext: `episodes/AKTE-001/script.md`, Arbeitsfassung, 139 Wörter.
  *
- * Diese Shotliste ist aus der STILANALYSE („13 erzählerische Illustrationen“,
- * Tresorkopf als Autoritätsfigur, Dachdecker/Kunde/Telefon/Automationsmaschine)
- * und den vorhandenen Szenenbildern rekonstruiert. Der verbindliche
- * Sprechertext steht in `Geldakte_Kanalmaschine.md`, die dem Projekt noch
- * fehlt. Vor der Produktion gilt:
+ * Die `voiceover`-Felder sind schnittbezogene Fragmente eines durchlaufenden
+ * Reads – der Text läuft über die Schnitte hinweg weiter, einzelne Sätze
+ * verteilen sich deshalb über zwei Shots.
  *
- *  1. `voiceover` gegen die freigegebene Kanalmaschine austauschen
- *     (120–140 Wörter gesamt, Handbuch Abschnitt 5, Arbeitsplatz B).
- *  2. Alle `betrag`-Werte durch geprüfte Zahlen ersetzen. `€ ???` ist ein
- *     bewusst sichtbarer Platzhalter, damit nichts ungeprüft rendert.
- *  3. `image` auf die Dateien in `public/akte-001/` setzen. `null` rendert
- *     eine Platzhalterkarte.
- *  4. Erlaubnis bzw. Vertragsbeziehung muss sichtbar verankert sein
- *     (Qualitäts-Gate, Punkt 2).
+ * Rechnung geprüft: 2 × 4 × 20 = 160 und 160 × 35 € = 5.600 €. Beide korrekt.
+ *
+ * OFFEN vor der Freigabe:
+ *  1. Redaktionelle Sperre aus `script.md`: Wortlaut, Markenbezeichnung,
+ *     Datenschutzprozess, Vergütungsdefinition und Zahlen brauchen die
+ *     Freigabe einer zweiten Person.
+ *  2. Timing gegen `public/audio/voiceover.m4a` legen. Die Datei liegt dem
+ *     Projekt nicht vor; die Dauern hier sind aus der Sprechlänge geschätzt.
+ *  3. Bilder nach `public/akte-001/` legen und `image` setzen.
  */
 export const akte001Shots: readonly Shot[] = [
   {
     id: 1,
     image: null,
     beschreibung:
-      'Dachdecker kniet auf dem Dach und hämmert. Neben ihm klingelt das Handy auf einer Holzkiste.',
-    caption: 'Er hört es nicht',
-    voiceover:
-      'Ein Dachdecker steht auf dem Dach. Sein Telefon klingelt zum vierten Mal an diesem Vormittag.',
-    sekunden: 2.8,
+      'Nahaufnahme eines anonymisierten Smartphones mit verpasstem Anruf, rotes Warnsignal, Geldschein als grafisches Beweisstück.',
+    caption: 'Verpasst',
+    voiceover: 'Ein Dachdecker steht auf dem Gerüst. Sein Handy klingelt.',
+    sekunden: 2.6,
     kenBurns: 'zoom-in',
   },
   {
     id: 2,
     image: null,
     beschreibung:
-      'Dachdecker greift sich an den Helm, ratlos, das Handy vibriert neben ihm.',
-    caption: 'Hände voll',
-    voiceover:
-      'Er kann nicht rangehen. Seine Hände sind voll, und die Leiter wackelt.',
-    sekunden: 2.4,
-    kenBurns: 'pan-right',
+      'Handwerker auf einem Gerüst, Handy in der Tasche, neugieriger statt dramatischer Gesichtsausdruck, sichere Baustellendarstellung.',
+    caption: 'Er geht nicht ran',
+    voiceover: 'Er geht nicht ran.',
+    sekunden: 2.2,
+    kenBurns: 'pan-down',
   },
   {
     id: 3,
     image: null,
     beschreibung:
-      'Kunde im Fenster darunter telefoniert wütend, wird nicht erreicht.',
-    caption: 'Der Kunde wartet',
-    voiceover:
-      'Am anderen Ende wartet ein Kunde, der heute einen Auftrag vergeben will.',
-    sekunden: 2.4,
+      'Geöffnete Fallakte mit Uhrzeit, Telefon und leerem Kontaktfeld, Tresorkopf als Ermittler.',
+    caption: 'Zwei Minuten',
+    voiceover: 'Zwei Minuten später',
+    sekunden: 2.2,
     kenBurns: 'zoom-in',
   },
   {
     id: 4,
     image: null,
     beschreibung:
-      'Kunde legt auf und wählt sofort die nächste Nummer aus der Trefferliste.',
-    caption: 'Nächste Nummer',
-    voiceover:
-      'Nach dem dritten Klingeln legt er auf und ruft den nächsten Betrieb an.',
-    sekunden: 2.6,
-    kenBurns: 'pan-left',
+      'Kundin am Fenster ruft einen Betrieb an, im Hintergrund ein zweites Telefon, klarer Ursache-Wirkungs-Moment.',
+    caption: 'Nächster Betrieb',
+    voiceover: 'ruft der Kunde den nächsten Betrieb an.',
+    sekunden: 3.0,
+    kenBurns: 'pan-right',
   },
   {
     id: 5,
     image: null,
     beschreibung:
-      'Handy mit langer roter Liste verpasster Anrufe, daneben der Tresorkopf mit Taschenrechner, Scheine wehen davon.',
-    caption: 'Vier verpasst',
-    betrag: '€ ???',
-    voiceover:
-      'Vier verpasste Anrufe an einem Tag. Für den Dachdecker sind das keine Anrufe, sondern Aufträge.',
-    sekunden: 3.0,
-    kenBurns: 'zoom-out',
+      'Tresorkopf zeigt auf eine leere Verbindung zwischen Kunde und Betrieb, einzelne gelbe Markierung.',
+    caption: 'Die Lücke',
+    voiceover: 'Genau hier liegt die Lücke.',
+    sekunden: 2.6,
+    kenBurns: 'zoom-in',
   },
   {
     id: 6,
     image: null,
     beschreibung:
-      'Büro: Geldscheine wirbeln aus dem Kalender in einen Gully im Boden. Tresorkopf zeigt darauf.',
-    caption: 'Jeden Monat',
-    betrag: '€ ???',
+      'Vereinfachte Stadtkarte mit vier neutralen Betriebsmarkern, keine Kartendienstkopie und keine echten Ortsdaten.',
+    caption: 'Vier Betriebe',
     voiceover:
-      'Hochgerechnet auf den Monat verschwindet so ein Betrag, den kein Betrieb freiwillig abschreiben würde.',
-    sekunden: 3.0,
-    kenBurns: 'pan-down',
+      'Du vereinbarst mit einem Betrieb, verpasste Anrufe sofort zu beantworten.',
+    sekunden: 3.2,
+    kenBurns: 'pan-up',
   },
   {
     id: 7,
     image: null,
     beschreibung:
-      'Tresorkopf am Schreibtisch, Lampe an, öffnet die burgunderrote Akte mit Lupe und Fotos.',
-    caption: 'Akte geöffnet',
-    voiceover: 'Und genau hier beginnt das Geschäftsmodell.',
-    sekunden: 2.2,
-    kenBurns: 'zoom-in',
+      'Maschine beantwortet eine Anfrage nach einer vorher festgelegten Regel, Zustimmungssymbol sichtbar.',
+    caption: 'Sofort-Antwort',
+    voiceover: 'Eine kurze Nachricht fragt:',
+    sekunden: 3.0,
+    kenBurns: 'zoom-out',
   },
   {
     id: 8,
     image: null,
     beschreibung:
-      'Automationsmaschine: verpasster Anruf läuft oben hinein, unten kommt eine Rückruf-Nachricht heraus.',
-    caption: 'Anruf wird Termin',
+      'Chat mit vier kurzen Fragen: WAS, WO, FOTO, WANN. Neutrale, synthetische Beispieldaten.',
+    caption: 'Was Wo Foto Wann',
     voiceover:
-      'Ein System erkennt den verpassten Anruf und schickt dem Anrufer sofort eine Nachricht zurück.',
-    sekunden: 3.0,
-    kenBurns: 'pan-right',
+      'Was ist kaputt? Wo ist der Einsatzort? Wann passt ein Termin?',
+    sekunden: 3.4,
+    kenBurns: 'zoom-in',
+    beats: ['WAS', 'WO', 'FOTO', 'WANN'],
   },
   {
     id: 9,
     image: null,
     beschreibung:
-      'Vertrag zwischen Dachdecker und Dienstleister, Unterschrift und Haken – die Erlaubnis ist sichtbar.',
-    caption: 'Mit Auftrag',
+      'Kalenderblock mit Termin, Betrieb als Auftraggeber sichtbar, keine echten Kundendaten.',
+    caption: 'Nur mit Zustimmung',
     voiceover:
-      'Wichtig: Das läuft im Auftrag des Betriebs, mit Vertrag und im Namen des Betriebs.',
-    sekunden: 2.8,
-    kenBurns: 'zoom-in',
+      'Nur wenn der Betrieb zustimmt, leitest du die Anfrage nach seinen Regeln weiter und buchst einen Termin.',
+    sekunden: 3.6,
+    kenBurns: 'pan-left',
+    erfolg: true,
+    beats: ['ZUSTIMMUNG', 'NACH SEINEN REGELN', 'TERMIN'],
   },
   {
     id: 10,
     image: null,
     beschreibung:
-      'Kunde im Wohnzimmer liest die Rückruf-Nachricht und bestätigt den Termin, grüner Haken.',
-    caption: 'Termin steht',
-    erfolg: true,
+      'Große Rechentafel mit 2 x 4 x 20 = 160, jeder Faktor als eigenes Beweisstück.',
+    caption: '160 Termine',
     voiceover:
-      'Der Kunde bekommt in Sekunden eine Antwort und bucht einen Termin, statt weiterzuwählen.',
-    sekunden: 2.8,
-    kenBurns: 'zoom-out',
+      'Beispiel: Zwei qualifizierte Termine pro Tag, vier Betriebe, 20 Arbeitstage. Das sind 2 x 4 x 20 = 160 Termine.',
+    sekunden: 4.2,
+    kenBurns: 'zoom-in',
+    stempel: 'Modellrechnung',
+    beats: ['2 TERMINE / TAG', '4 BETRIEBE', '20 ARBEITSTAGE', '= 160'],
   },
   {
     id: 11,
     image: null,
     beschreibung:
-      'Isometrische Karte mit vielen Handwerksbetrieben, Tresorkopf hakt eine Liste ab.',
-    caption: 'Jeder Betrieb',
+      '160 Termine und 35 EUR führen zu 5.600 EUR, Stempel MODELLRECHNUNG gut sichtbar.',
+    caption: 'Im Monat',
+    betrag: '5.600 €',
     voiceover:
-      'Dachdecker, Installateur, Elektriker, Maler – jeder Betrieb mit Aussendienst hat dasselbe Loch.',
-    sekunden: 2.8,
-    kenBurns: 'pan-up',
+      'Bei 35 Euro je wahrgenommenem Termin ergibt das 160 x 35 = 5.600 Euro Umsatz im Monat.',
+    sekunden: 4.6,
+    kenBurns: 'zoom-out',
+    stempel: 'Modellrechnung',
+    // Das Ergebnis trägt der grosse Betrag, nicht noch ein Beat – sonst steht
+    // 5.600 € doppelt im Bild.
+    beats: ['160 TERMINE', '× 35 €'],
   },
   {
     id: 12,
     image: null,
     beschreibung:
-      'Tresorkopf hält den offenen Aktenkoffer, zeigt direkt in die Kamera.',
-    caption: 'Wer zahlt hier',
+      'Tresorkopf blickt in die Kamera, Fallakte geschlossen, CTA und Hinweis Beispielrechnung.',
+    caption: 'Du reparierst nichts',
     voiceover:
-      'Die Frage ist nur, wer das Loch schliesst – und wer dafür bezahlt wird.',
-    sekunden: 2.6,
+      'Das ist eine Beispielrechnung. Kosten, Ausfälle, Steuern und Stornos fehlen. Du reparierst kein Dach. Du verkaufst dem Betrieb eine saubere Reaktion auf verpasste Anrufe.',
+    sekunden: 5.0,
     kenBurns: 'zoom-in',
+    beats: ['KEIN DACH', 'NUR DIE REAKTION'],
   },
 ];
+
+/**
+ * Pflicht-Kleindruck aus `referenzen/Geldakte_Kanalmaschine.md`, Abschnitt 7.
+ * Muss über der gesamten Folge sichtbar bleiben (Qualitäts-Gate, Punkt 3).
+ */
+export const KLEINDRUCK =
+  'Beispielrechnung · nur mit Vertrag und datenschutzkonformer Einwilligung';

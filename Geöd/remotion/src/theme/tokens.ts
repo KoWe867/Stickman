@@ -6,27 +6,45 @@
  * Erfolgs- bzw. Bestätigungssignal.
  */
 
+/**
+ * KONFLIKT, bewusst so aufgelöst:
+ * `Geldakte_Kanalmaschine.md` (20. Aug.) nennt als Hauptfarbe tiefes Petrol
+ * `#073F3E` und beschreibt einen menschlichen Finanzermittler im Trenchcoat.
+ * Die `STILANALYSE.md` und sämtliche vorhandenen Szenenbilder zeigen dagegen
+ * Dunkelblau und den Tresorkopf. Der `Produktionsbetrieb.md` (27. Aug.,
+ * jünger) erklärt den Roboter zur vorläufigen Referenz für die erste Woche.
+ *
+ * Deshalb: Dunkelblau als Anzug-/Flächenfarbe, aber die exakten Hexwerte der
+ * Kanalmaschine für Elfenbein, Burgunder, Kupfer und Anthrazit. Die
+ * Petrol-Entscheidung gehört ins Decision Log, bevor Serienfolgen laufen.
+ */
 export const colors = {
-  /** Grundfläche, Hintergründe, Schlüsselwörter */
-  creme: '#F2E4C9',
+  /** Grundfläche und Hintergründe – Elfenbein aus der Kanalmaschine. */
+  creme: '#F3E8CF',
   cremeHell: '#FBF3E2',
 
-  /** Anzüge, Konturen, dunkle Flächen */
+  /** Anzüge, Konturen, dunkle Flächen (STILANALYSE, nicht Petrol). */
   dunkelblau: '#1B2A47',
   dunkelblauTief: '#101A2E',
 
-  /** Akten, Akzente, Alarmzustände */
-  burgund: '#7A1F2B',
+  /** Akten, Akzente, Alarmzustände – Burgunder aus der Kanalmaschine. */
+  burgund: '#701C32',
   burgundHell: '#A33141',
 
   /** Nur für Erfolg und Bestätigung verwenden – nie dekorativ. */
   gruen: '#2E9E5B',
 
-  /** Outline und Text auf hellem Grund */
-  kontur: '#0D1626',
+  /** Outline und Text – Anthrazit aus der Kanalmaschine. */
+  kontur: '#15191A',
 
-  /** Warnsignal in Zahlen und Verlusten */
-  signalOrange: '#E8862B',
+  /** Kupfer: Schlüsselwörter, Zahlen, Warnsignale. */
+  kupfer: '#D68A3A',
+
+  /** Alias für Bestandscode; identisch mit Kupfer. */
+  signalOrange: '#D68A3A',
+
+  /** Hauptfarbe laut Kanalmaschine – derzeit nicht verwendet, siehe Konflikt. */
+  petrol: '#073F3E',
 } as const;
 
 /**

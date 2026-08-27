@@ -9,8 +9,10 @@ import {
 } from 'remotion';
 import {colors, fonts, safeZone} from '../theme/tokens';
 import type {KenBurns, Shot} from '../lib/shots';
+import {Beats} from './Beats';
 import {Betrag} from './Betrag';
 import {Caption} from './Caption';
+import {Stempel} from './Stempel';
 
 const kamerafahrt = (
   art: KenBurns,
@@ -58,7 +60,9 @@ const kamerafahrt = (
 const Platzhalter: React.FC<{
   readonly nummer: number;
   readonly beschreibung: string;
-}> = ({nummer, beschreibung}) => (
+  /** Bei Shots mit Beats belegen diese das obere Drittel – dann kompakt. */
+  readonly kompakt: boolean;
+}> = ({nummer, beschreibung, kompakt}) => (
   <AbsoluteFill
     style={{
       backgroundColor: colors.dunkelblau,
@@ -66,33 +70,36 @@ const Platzhalter: React.FC<{
       // Endet oberhalb der Zone, in der Betrag und Caption liegen – sonst
       // überlagern sich Platzhaltertext und Text-Overlays unlesbar.
       justifyContent: 'flex-start',
-      paddingTop: 300,
+      paddingTop: kompakt ? 780 : 300,
       paddingInline: 90,
       paddingBottom: safeZone.bottom + 340,
-      gap: 40,
+      gap: kompakt ? 18 : 40,
     }}
   >
-    <div
-      style={{
-        fontFamily: fonts.display,
-        fontWeight: fonts.displayWeight,
-        fontSize: 220,
-        color: colors.burgundHell,
-        lineHeight: 1,
-      }}
-    >
-      {String(nummer).padStart(2, '0')}
-    </div>
+    {kompakt ? null : (
+      <div
+        style={{
+          fontFamily: fonts.display,
+          fontWeight: fonts.displayWeight,
+          fontSize: 220,
+          color: colors.burgundHell,
+          lineHeight: 1,
+        }}
+      >
+        {String(nummer).padStart(2, '0')}
+      </div>
+    )}
     <div
       style={{
         fontFamily: fonts.body,
-        fontSize: 46,
+        fontSize: kompakt ? 32 : 46,
         lineHeight: 1.35,
         textAlign: 'center',
         color: colors.creme,
-        opacity: 0.85,
+        opacity: kompakt ? 0.6 : 0.85,
       }}
     >
+      {kompakt ? `${String(nummer).padStart(2, '0')} · ` : ''}
       {beschreibung}
     </div>
     <div
@@ -130,7 +137,11 @@ export const Szene: React.FC<{
         }}
       >
         {shot.image === null ? (
-          <Platzhalter nummer={shot.id} beschreibung={shot.beschreibung} />
+          <Platzhalter
+            nummer={shot.id}
+            beschreibung={shot.beschreibung}
+            kompakt={Boolean(shot.beats?.length)}
+          />
         ) : (
           <Img
             src={staticFile(`${episode}/${shot.image}`)}
@@ -139,6 +150,8 @@ export const Szene: React.FC<{
         )}
       </AbsoluteFill>
 
+      {shot.beats ? <Beats beats={shot.beats} /> : null}
+      {shot.stempel ? <Stempel text={shot.stempel} /> : null}
       {shot.betrag ? (
         <Betrag text={shot.betrag} positiv={shot.erfolg} />
       ) : null}

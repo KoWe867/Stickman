@@ -50,19 +50,26 @@ Qualitäts-Gate auffallen.
 
 ## Offene Punkte vor der Serienproduktion
 
-1. **Sprechertext.** Die Shotliste von AKTE 001 ist ein Entwurf, rekonstruiert
-   aus der STILANALYSE und den Szenenbildern. Der verbindliche Text steht in
-   `Geldakte_Kanalmaschine.md`, die dem Projekt noch fehlt.
-2. **Zahlen.** Alle Beträge stehen als sichtbarer Platzhalter `€ ???` drin.
-   Das Qualitäts-Gate verlangt geprüfte, korrekt gerechnete Zahlen.
-3. **Bilder.** `public/akte-001/` ist leer, alle Shots rendern derzeit
-   Platzhalterkarten. Die Szenenbilder liegen noch nicht als Dateien vor.
+1. **Bilder.** `public/akte-001/` ist leer, alle Shots rendern derzeit
+   Platzhalterkarten. Die zwölf Szenenbilder liegen noch nicht als Dateien vor.
+2. **Ton und Timing.** Es gibt keine Tonspur. Die Shotdauern sind aus der
+   Sprechlänge geschätzt und ergeben 45,6 Sekunden. Sie müssen gegen
+   `public/audio/voiceover.m4a` gelegt werden, sobald die Datei vorliegt –
+   das bestehende Projekt läuft laut seinem Produktionsplan 60,17 Sekunden,
+   die Kanalmaschine empfiehlt für den ersten Cut rund 49 Sekunden.
+3. **Redaktionelle Sperre.** `episodes/AKTE-001/script.md` verlangt vor
+   Veröffentlichung die Freigabe von Wortlaut, Markenbezeichnung,
+   Datenschutzprozess, Vergütungsdefinition und Zahlen durch eine zweite
+   Person.
 4. **Schrift.** Auf dem Renderer ist keine schmale Plakatschrift installiert;
    der Fallback ist DejaVu Sans Bold. Eine lizenzierte Schrift (Archivo Black,
    Anton o. ä.) gehört nach `public/fonts/`, per `@font-face` eingebunden und
    ins Asset-Ledger eingetragen.
-5. **Voice und Ton.** Es gibt noch keine Tonspur. Handbuch Abschnitt 5 verlangt
-   verständliche deutsche Stimme, präzise Untertitel und sauberes Sounddesign.
+5. **Farbkonflikt.** `Geldakte_Kanalmaschine.md` nennt Petrol `#073F3E` als
+   Hauptfarbe und einen menschlichen Finanzermittler; STILANALYSE und alle
+   vorhandenen Bilder zeigen Dunkelblau und den Tresorkopf. Aufgelöst
+   zugunsten der jüngeren Quelle – gehört ins Decision Log, siehe
+   `src/theme/tokens.ts`.
 6. **Lizenz.** Remotion ist für Firmen ab vier Personen kostenpflichtig. Die
    geplante Skalierung auf zehn Arbeitsplätze überschreitet diese Grenze –
    Konditionen prüfen und in die Wirtschaftlichkeitsrechnung aufnehmen.

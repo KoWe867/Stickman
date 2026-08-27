@@ -31,7 +31,19 @@ export type Shot = {
   readonly kenBurns: KenBurns;
   /** Grün ist laut STILANALYSE ausschliesslich Erfolgssignal. */
   readonly erfolg?: boolean;
+  /**
+   * Innere Informationsbeats, die nacheinander einlaufen. Die Animationsregie
+   * erlaubt „2,0–3,2 Sekunden sichtbarer Wechsel ODER klarer Informationsbeat“ –
+   * ein längerer Shot ist also nur zulässig, wenn er sich intern weiterbewegt.
+   * Genutzt für die Rechenfaktoren, die einzeln eingeblendet werden.
+   */
+  readonly beats?: readonly string[];
+  /** Sichtbarer Stempel, z. B. MODELLRECHNUNG bei Zahlenbildern. */
+  readonly stempel?: string;
 };
+
+/** Obergrenze für einen Shot ohne innere Beats (Animationsregie). */
+const MAX_SEKUNDEN_OHNE_BEAT = 3.2;
 
 export const sekundenZuFrames = (sekunden: number): number =>
   Math.round(sekunden * format.fps);
@@ -63,6 +75,12 @@ export const pruefeShots = (shots: readonly Shot[]): string[] => {
     if (shot.sekunden > 7) {
       befunde.push(
         `Shot ${shot.id}: ${shot.sekunden}s – kein Bild darf länger als 7 Sekunden unverändert stehen.`,
+      );
+    }
+    const beats = shot.beats?.length ?? 0;
+    if (shot.sekunden > MAX_SEKUNDEN_OHNE_BEAT && beats === 0) {
+      befunde.push(
+        `Shot ${shot.id}: ${shot.sekunden}s ohne inneren Informationsbeat – über ${MAX_SEKUNDEN_OHNE_BEAT}s braucht der Shot Beats.`,
       );
     }
     const woerter = shot.caption.trim().split(/\s+/).filter(Boolean);
